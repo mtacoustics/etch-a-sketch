@@ -1,6 +1,12 @@
+body {
+    text-align: center;
+}
+
 #gridContainer {
     display: flex;
-    flex: 1;
+    padding-top: 20px;
+    justify-content: center;
+    margin: auto;
     width: 80vh;
     height: 80vh;
 }
