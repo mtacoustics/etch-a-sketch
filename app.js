@@ -28,3 +28,7 @@ function fillRows (columns) {
         }
     }
 }
+
+function clearGrid() {
+    gridContainer.innerHTML = '';
+}
