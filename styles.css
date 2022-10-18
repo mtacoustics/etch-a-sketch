@@ -1,0 +1,17 @@
+#gridContainer {
+    display: flex;
+    width: 500px;
+    height:500px
+}
+
+.rows {
+    /* height: 15px;
+    width: 15px;
+    border: solid black 1px; */
+}
+
+.cells {
+    height: 15px;
+    width: 15px;
+    border: solid black 1px;
+}
