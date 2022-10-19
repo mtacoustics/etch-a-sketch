@@ -1,9 +1,10 @@
 const gridContainer = document.querySelector("#gridContainer")
 const gridButton = document.getElementById("changeGrid")
-const cells = document.getElementsByClassName('cells')
 const row = document.getElementsByClassName('rows')
-
+const resetButton = document.getElementById("reset")
 document.onload = createDefaultGrid();
+
+resetButton.addEventListener('click', resetGrid)
 
 function createDefaultGrid() {
     createRow(16);
@@ -25,6 +26,9 @@ function fillRows (columns) {
             let cells = document.createElement('div')
             row[n].appendChild(cells)
             cells.classList.add('cells')
+            cells.addEventListener('mouseenter', function(e) {
+                cells.classList.add('black-cell')
+            });
         }
     }
 }
@@ -32,3 +36,28 @@ function fillRows (columns) {
 function clearGrid() {
     gridContainer.innerHTML = '';
 }
+
+function resetGrid() {
+    gridContainer.innerHTML = '';
+    createDefaultGrid()
+}
+
+gridButton.addEventListener('click', getUserInput)
+
+function getUserInput() {
+    input = prompt("Please enter a grid size (from 16 - 100):")
+        if (input > 100 || input < 16 || input === null || input === undefined ) {
+            alert("That value is not between 16-100. Please try again")
+            getUserInput();
+        } else {
+            createCustomgrid(input)
+        }
+}
+
+function createCustomgrid(input) {
+    clearGrid()
+    createRow(input)
+    fillRows(input)    
+}
+
+
